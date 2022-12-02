@@ -1,0 +1,77 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <a class="btn btn-success btn-round" (click)="toGoCreate()">Crear</a>
+            </div>
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Control de medicamentos</h4>
+                        <p class="card-category">Medicamentos activos e inactivos</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>
+                                        No. medicamento
+                                    </th>
+                                    <th>
+                                        Nombre Medicamento
+                                    </th>
+                                    <th>
+                                        Contenido
+                                    </th>
+                                    <th>
+                                        Nombre
+                                    </th>
+                                    <th>
+                                        Apellido
+                                    </th>
+                                    <th>
+                                        Cubierto
+                                    </th>
+                                    <th>
+                                        Completar
+                                    </th>
+                                </thead>
+                                <tbody>
+                                    <tr
+                                        *ngFor="let medicamentos_cliente of medicamentos_de_cliente_activo; let i = index">
+                                        <td>
+                                            {{medicamentos_cliente.id_medicamento}}
+                                        </td>
+                                        <td>
+                                            {{medicamentos_cliente.nombre_medicamento}}
+                                        </td>
+                                        <td>
+                                            {{medicamentos_cliente.contenido_medicamento}}
+                                        </td>
+                                        <td>
+                                            {{nombre_cliente_activo}}
+                                        </td>
+                                        <td class="text-primary">
+                                            {{apellido1_cliente_activo}}
+                                        </td>
+                                        <td>
+                                            <ng-container *ngIf="medicamentos_cliente.nombre_medicamento.length > 5">
+                                                true
+                                            </ng-container>
+                                            <ng-container *ngIf="medicamentos_cliente.nombre_medicamento.length <= 5">
+                                                false
+                                            </ng-container>
+                                        </td>
+                                        <a class="btn btn-success btn-round" (click)="sonarPrueba()">Completar</a>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+</div>
