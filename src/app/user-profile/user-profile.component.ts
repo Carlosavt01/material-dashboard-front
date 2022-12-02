@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Medicamento } from 'app/programming/dto/Medicamento.dto';
 import { Cliente_Medicamento } from 'app/programming/dto/Cliente_Medicamento.dto';
 import { MedicamentoService } from 'app/programming/services/medicamento.service';
@@ -19,7 +19,7 @@ export class UserProfileComponent implements OnInit {
 
   // para el formulario reactivo principal
 
-  cliente_medicamentos_form: FormGroup;
+  cliente_medicamentos_form: UntypedFormGroup;
 
   // medicamentos que llenan el combobox (vienen del API)
   medicamentos: Medicamento[] = [];
@@ -32,7 +32,7 @@ export class UserProfileComponent implements OnInit {
 
   constructor(private medicamentoService: MedicamentoService,
     private clienteMedicamentoService: ClienteMedicamentoService,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private router: Router) { }
 
 

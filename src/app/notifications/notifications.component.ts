@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { Route, Router } from '@angular/router';
 import { Cliente } from 'app/programming/dto/Cliente.dto';
 import { AuxiliarService } from 'app/programming/services/auxiliar.service';
@@ -43,9 +43,9 @@ export class NotificationsComponent implements OnInit {
     });
 }
 
-  usuarioForm: FormGroup;
+  usuarioForm: UntypedFormGroup;
 
-  constructor(private formBuilder: FormBuilder,
+  constructor(private formBuilder: UntypedFormBuilder,
     private usuarioService: UsuarioService,
     private AuxiliarService: AuxiliarService, 
     private router: Router) { }

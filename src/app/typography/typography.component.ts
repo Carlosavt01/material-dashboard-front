@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormArray, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Cliente } from 'app/programming/dto/Cliente.dto';
 import { Usuario } from 'app/programming/dto/Usuario.dto';
@@ -14,9 +14,9 @@ import Swal from 'sweetalert2';
 })
 export class TypographyComponent implements OnInit {
 
-  clienteForm: FormGroup;
+  clienteForm: UntypedFormGroup;
   clienteCreado: Cliente = new Cliente();
-  usuarioForm: FormGroup;
+  usuarioForm: UntypedFormGroup;
 
   get cliente() {
     return this.clienteForm.controls;
@@ -26,7 +26,7 @@ export class TypographyComponent implements OnInit {
     return this.usuarioForm.controls;
   }
 
-  constructor(private formBuilder: FormBuilder, private clienteService: ClienteService,
+  constructor(private formBuilder: UntypedFormBuilder, private clienteService: ClienteService,
     private usuarioService: UsuarioService, private router: Router) { }
 
   ngOnInit() {
@@ -37,7 +37,7 @@ export class TypographyComponent implements OnInit {
       apellido_paterno_cliente: ['', [Validators.required]],
       apellido_materno_cliente: ['', [Validators.required]],
       edad_cliente: ['', [Validators.required]],
-      medicamentos: new FormArray([])
+      medicamentos: new UntypedFormArray([])
     });
 
     this.usuarioForm = this.formBuilder.group({
